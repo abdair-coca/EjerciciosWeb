@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/png" href="/images/image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tilt+Neon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <title>to do list</title>
+</head>
+<body class="alinear">
+    <main class="alinear">
+        <header>
+            <h1>Lista de tareas</h1>
+            <input type="text" id="buscador" placeholder="Buscar tarea">
+            <button id="boton-buscar">🔎</button>
+        </header>
+        <div id="añadir-contenedor">
+            <input id="texto-entrada" type="text" placeholder="Añade una tarea">
+            <button id="agregar-tarea">Agregar tarea</button>
+        </div>
+        <div id="contenedor-pend">
+            <h2>Tareas</h2>
+            <ol id="lista">
+                
+            </ol>
+        </div> 
+    </main>
+        <!-- requerimientos:
+        Permite agregar tareas con un botón y mostrarlas en una lista.
+        Agrega un checkbox junto a cada tarea para marcarla como "completada".
+        Incluye un campo de búsqueda para filtrar las tareas por su texto.
+        Permite eliminar tareas completadas con un botón.-->
+    <script src="/script.js"></script>
+</body>
+</html>

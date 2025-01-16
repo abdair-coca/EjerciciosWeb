@@ -17,20 +17,19 @@ jobs:
       - name: Deploy fivethexercise
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./fivethexercise
 
       # 3. Deploy sixthexercise
       - name: Deploy sixthexercise
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./sixthexercise
 
       # 4. Deploy seventhexrecise
       - name: Deploy seventhexrecise
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./seventhexrecise
-

@@ -9,19 +9,28 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # 1. Checkout del repositorio
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # 2. Deploy fivethexercise
       - name: Deploy fivethexercise
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./fivethexercise
-          destination_dir: fivethexercise
 
+      # 3. Deploy sixthexercise
       - name: Deploy sixthexercise
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./sixthexercise
-          destination_dir: sixthexercise
+
+      # 4. Deploy seventhexrecise
+      - name: Deploy seventhexrecise
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./seventhexrecise
+

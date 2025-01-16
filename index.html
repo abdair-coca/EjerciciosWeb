@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>cronometro</title>
+    <link rel="icon" type="img/png" href="/images/image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tilt+Neon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>to do list</title>
 </head>
-<body class="align-items">
-    <div id="contenedor" class="align-items">
-        <h1>Cronometro</h1>
-        <p id="numero">0</p>
-        <div id="botones">
-            <button id="iniciar">iniciar</button>
-            <button id="detener">detener</button>
-            <button id="reiniciar">reiniciar</button>
+<body class="alinear">
+    <main class="alinear">
+        <header>
+            <h1>Lista de tareas</h1>
+            <input type="text" id="buscador" placeholder="Buscar tarea">
+            <button id="boton-buscar">🔎</button>
+        </header>
+        <div id="añadir-contenedor">
+            <input id="texto-entrada" type="text" placeholder="Añade una tarea">
+            <button id="agregar-tarea">Agregar tarea</button>
         </div>
-    </div>
+        <div id="contenedor-pend">
+            <h2>Tareas</h2>
+            <ol id="lista">
+                
+            </ol>
+        </div> 
+    </main>
     <script src="script.js"></script>
 </body>
 </html>

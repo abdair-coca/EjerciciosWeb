@@ -1,11 +1,10 @@
-Aplicación de Lista de Tareas con Filtrado
-
-Descripción : Crea una lista de tareas pendientes con funcionalidades avanzadas.
-Requisitos :
-Permite agregar tareas con un botón y mostrarlas en una lista.
-Agrega un checkbox junto a cada tarea para marcarla como "completada".
-Incluye un campo de búsqueda para filtrar las tareas por su texto.
-Permite eliminar tareas completadas con un botón.
-Pistas :
-Usa querySelectorAll()para buscar los elementos que coinciden con los criterios del filtro.
-Almacena las tareas como objetos en un array para facilitar su manipulación.
+Descripción: Implementa un juego donde el usuario debe adivinar el color RGB basado en una pista.
+Requerimientos:
+Genera un color RGB aleatorio y muestra el valor RGB en el DOM.
+Muestra tres cuadrados de colores; uno de ellos es el color correcto y los otros dos son colores aleatorios.
+Al hacer clic en el cuadrado correcto, muestra un mensaje de "Correcto" y cambia todos los cuadrados al color correcto.
+Si el usuario selecciona el color incorrecto, muestra un mensaje de "Intenta de nuevo".
+Pistas:
+Usa Math.random() para generar colores aleatorios.
+Asigna eventos de clic a cada cuadrado para manejar las selecciones del usuario.
+Usa clases de CSS para cambiar los estilos dinámicamente.

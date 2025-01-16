@@ -1,90 +1,93 @@
-const textoEntrada = document.getElementById("texto-entrada");
-const botonEntrada = document.getElementById("agregar-tarea");
-const textoBuscar = document.getElementById("buscador");
-const botonBuscar = document.getElementById("boton-buscar");
-const listaol = document.getElementById("lista");
-let cont = 0;
-
-function creartarea(cont){
-    const texto = textoEntrada.value;
-
-    /*<li>nueva tarea 
-    <div id="tarea">
-    <button id="eliminar">Eliminar</button> 
-        <label for="checkbox">Completada</label>
-        <input type="checkbox" name="checkbox" id="checkbox">
-    </div>
-    </li>*/
-    if(texto !== ""){
-        const nuevoLi = document.createElement('li');
-        const nuevoDiv = document.createElement('div');
-        const nuevoBoton = document.createElement('button');
-        const nuevoLabel = document.createElement('label');
-        const nuevoinput = document.createElement('input');
-
-    nuevoBoton.textContent = "Eliminar";
-    nuevoLabel.textContent = "Completada";
-    nuevoLabel.setAttribute("for", `checkbox-${cont}`);
-    nuevoinput.type = "checkbox";
-    nuevoinput.name = `checkbox-${cont}`;
-    nuevoinput.id = `checkbox-${cont}`;
-
-        nuevoLi.textContent = texto;
-        listaol.appendChild(nuevoLi);
-
-        nuevoLi.appendChild(nuevoDiv);
-
-        nuevoDiv.appendChild(nuevoBoton)
-
-        nuevoDiv.appendChild(nuevoLabel);
-
-        nuevoDiv.appendChild(nuevoinput);
+const botonGenerar = document.getElementById("generar-boton");
+const textoRGB = document.querySelector("body main #adivinar-cont #rgb-generado");
+const cuadro1 = document.querySelector(`body main #adivinar-cont #opciones-cuadros-cont #cuadro-1`);
+const cuadro2 = document.querySelector(`body main #adivinar-cont #opciones-cuadros-cont #cuadro-2`);
+const cuadro3 = document.querySelector(`body main #adivinar-cont #opciones-cuadros-cont #cuadro-3`);
+const cuadrosopciones = document.querySelectorAll(".opciones-cuadros");
+const Reintentar = document.getElementById("reintento");
+Reintentar.style.display = "none";
+const botonReintentar = document.getElementById("boton-reintentar");
+let cuadroElegidoreal;
 
 
-        nuevoBoton.addEventListener('click', ()=>{
-            listaol.removeChild(nuevoLi);
-        })
+function generarColor(){
 
-        textoEntrada.value = "";
-        textoEntrada.focus();
+     //Generar un numero entre 1-3 para escoger el cuadro ganador
+    let cuadroAleatorio = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+ 
+     //seleccionamos el cuadro elegido aleatoriamente
+    const cuadroElegido = document.querySelector(`body main #adivinar-cont #opciones-cuadros-cont #cuadro-${cuadroAleatorio}`);
 
-    }
-    else {
-        alert("error")
-        textoEntrada.focus();
-    }
-}
 
-function buscando (){
-    const elementos = listaol.getElementsByTagName("li")
-    const filtro = textoBuscar.value.toLowerCase();
+    //Generamos el rgb aleatorio
+    let a= Math.floor(Math.random() * 255);
+    let b= Math.floor(Math.random() * 255);
+    let c= Math.floor(Math.random() * 255);
 
-    for (const elemento of elementos){
-        const texto = elemento.textContent.toLowerCase();
+    cuadroElegido.style.backgroundColor = `RGB(${a},${b},${c})`;
 
-        if(texto.includes(filtro)){
-            elemento.classList.remove("oculto");
-        }else{
-            elemento.classList.add("oculto");
+    textoRGB.textContent = `RGB(${a},${b},${c})`;
+
+    //generamos el color de los otros cuadros de forma aleatoriamente
+
+    for(let i=1; i<=3; i++){  
+        if(i === cuadroAleatorio){
+            if(i==3){
+                break;
+            }
+            i++;
         }
+        const cuadroNoElegido = document.querySelector(`body main #adivinar-cont #opciones-cuadros-cont #cuadro-${i}`);
+
+        a= Math.floor(Math.random() * 255);
+        b= Math.floor(Math.random() * 255);
+        c= Math.floor(Math.random() * 255);
+
+        cuadroNoElegido.style.backgroundColor = `RGB(${a},${b},${c})`;
     }
-    textoBuscar.value = "";
-    textoBuscar.focus();
+    return cuadroElegido;
 }
 
-function entrada (){
-        const arrayTareas = [];
-        arrayTareas[cont] =  creartarea(cont);
-        cont ++;
-}
-
-textoEntrada.addEventListener('keypress', function e(){
-    if(e.key === 'Enter'){
-        entrada();
+botonGenerar.addEventListener('click', ()=>{
+    cuadroElegidoreal  = generarColor();
+});
+cuadro1.addEventListener('click', ()=>{
+    if(cuadro1.style.backgroundColor == cuadroElegidoreal.style.backgroundColor){
+        alert("ganaste");
+    }else{
+        cuadrosopciones.forEach((elemento) => {
+            elemento.style.display = "none"; // Aplicar display: none
+          });
+          
+    Reintentar.style.display = "block";
     }
+});
+cuadro2.addEventListener('click', ()=>{
+    if(cuadro2.style.backgroundColor == cuadroElegidoreal.style.backgroundColor){
+        alert("ganaste");
+    }else{
+        cuadrosopciones.forEach((elemento) => {
+            elemento.style.display = "none"; // Aplicar display: none
+          });
+    Reintentar.style.display = "block";
+    }
+});
+cuadro3.addEventListener('click', ()=>{
+    if(cuadro3.style.backgroundColor == cuadroElegidoreal.style.backgroundColor){
+        alert("ganaste");
+    }else{
+        cuadrosopciones.forEach((elemento) => {
+            elemento.style.display = "none"; // Aplicar display: none
+          });
+          
+    Reintentar.style.display = "block";
+    }
+});
+botonReintentar.addEventListener('click', ()=>{
+    cuadroElegidoreal  = generarColor();
+    cuadrosopciones.forEach((elemento) => {
+        elemento.style.display = "block"; // Aplicar display: non
+      })
+    Reintentar.style.display = "none";
 })
 
-
-botonBuscar.addEventListener('click', buscando);
-
-botonEntrada.addEventListener('click', entrada);

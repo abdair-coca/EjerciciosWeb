@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Tilt Neon', sans-serif;
+}
+main{
+    display:grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+#titulo{
+    font-size: 40px;
+}
+div{
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 30px;
+}
+.opciones-cuadros{
+    margin: 10px;
+    padding: 30px;
+}
+#opciones-cuadros-cont{
+    display: flex;
+    justify-content: center;
+}
+#cuadro-1{
+    background-color: white;
+}
+#cuadro-2{
+    background-color: white;
+}
+#cuadro-3{
+    background-color: white;
+}
+button{
+    margin: 5px;
+    padding: 2px;
+    border-radius: 10px;
+}
